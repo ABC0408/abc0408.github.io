@@ -272,7 +272,11 @@
           </a>
         </li>
       
-
+      <% if (theme.swift_search.enable){ %>
+          <form class="search" action="<%- config.root %>search/index.html" method="get" accept-charset="utf-8">
+          <input type="text" id="st-search-inpu" maxlength="20" placeholder="搜索" />
+          </form>
+      <% }
       
         <li class="menu-item menu-item-search">
           
@@ -290,25 +294,40 @@
 
   
     <div class="site-search">
-      
-  <div class="popup search-popup local-search-popup">
-  <div class="local-search-header clearfix">
-    <span class="search-icon">
-      <i class="fa fa-search"></i>
-    </span>
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-    <div class="local-search-input-wrapper">
-      <input autocapitalize="off" autocomplete="off" autocorrect="off"
-             placeholder="搜索..." spellcheck="false"
-             type="text" id="local-search-input">
-    </div>
-  </div>
-  <div id="local-search-result"></div>
-</div>
-
-
+      <% if(theme.swift_search.enable) { %>
+    <div  id="container" class="page">
+      <div id="st-results-container" style="width:70%; margin:1.5em auto">正在加载搜索结果，请稍等。</div>
+  <style>
+.st-result-text {
+     background: #fafafa;
+      display: block;
+      border-left: 0.5em solid #ccc;
+      -webkit-transition: border-left 0.45s;
+      -moz-transition: border-left 0.45s;
+      -o-transition: border-left 0.45s;
+      -ms-transition: border-left 0.45s;
+      transition: border-left 0.45s;
+      padding: 0.5em;
+    }
+@media only screen and (min-width: 768px) {
+  .st-result-text {
+    padding: 1em;
+      }
+}
+.st-result-text:hover {
+      border-left: 0.5em solid #ea6753;
+    }
+.st-result-text h3 a{
+      color: #2ca6cb;
+      line-height: 1.5;
+      font-size: 22px;
+    }
+.st-snippet em {
+      font-weight: bold;
+      color: #ea6753;
+    }
+</style>
+<% } %>
 
     </div>
   
